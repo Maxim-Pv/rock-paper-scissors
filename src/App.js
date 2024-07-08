@@ -1,6 +1,10 @@
+import { useState } from 'react';
+import Game from './components/Game';
 import './styles.css';
 
 function App() {
+  const [score, setScore] = useState(0);
+  
   return (
     <div className="container">
       <div className='header'>
@@ -10,10 +14,13 @@ function App() {
           <h1>Scissors</h1>
         </div>
         <div className='score'>
-          <span>score</span>
+          <span>Score</span>
+          <span>{score}</span>
         </div>
       </div>
-      
+      <Game 
+        score={score} setScore={setScore}
+      />
     </div>
   );
 }

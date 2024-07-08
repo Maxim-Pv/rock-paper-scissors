@@ -45,12 +45,15 @@ body {
 .score {
   width: 130px;
   height: 100%;
+  padding: 10px;
   text-align: center;
   border-radius: 6px;
-  background: hsl(217, 16%, 45%);
+  background: white;
   
 }
 
 .score span {
+  display: block;
+  text-transform: uppercase;
   color: hsl(229, 64%, 46%);
 }

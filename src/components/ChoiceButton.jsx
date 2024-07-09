@@ -4,7 +4,6 @@ const ChoiceButton = ({choice, onClick}) => {
   console.log(choice);
   return (
     <button className={`choice-btn ${choice}`} onClick={() => onClick(choice)}>
-      {choice}
     </button>
   )
 }

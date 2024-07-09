@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ChoiceButton from './ChoiceButton';
 
-const choices = ['rock', 'paper', 'scissors'];
+const choices = ['paper', 'scissors', 'rock'];
 const getRandomChoice = () => choices[Math.floor(Math.random() * choices.length)];
 const determineWinner = (userChoice, computerChoice) => {
   if (userChoice === computerChoice) return 'draw';
@@ -30,6 +30,8 @@ const Game = ({score, setScore}) => {
       setScore(score + 1);
     } else if (gameResult === 'YOU LOSE') {
       setScore(score - 1);
+    } else if (score < 0) {
+      setScore(0);
     }
   }
 

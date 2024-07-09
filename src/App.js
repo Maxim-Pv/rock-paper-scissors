@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import Game from './components/Game';
 import './styles.css';
+import Rules from './components/Rules';
 
 function App() {
   const [score, setScore] = useState(0);
+  const [activeRules, setActiveRules] = useState(false);
   
   return (
     <div className="container">
@@ -14,13 +16,19 @@ function App() {
           <h1>Scissors</h1>
         </div>
         <div className='score'>
-          <span>Score</span>
-          <span>{score}</span>
+          <span className='score-title'>Score</span>
+          <span className='score-number'>{score}</span>
         </div>
       </div>
+      <button className='btn-rules' onClick={() => setActiveRules(true)}>
+        rules
+      </button>
       <Game 
         score={score} setScore={setScore}
-      />
+        />
+      <Rules 
+        active={activeRules} setActive={setActiveRules}
+        />
     </div>
   );
 }

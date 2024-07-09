@@ -3,12 +3,12 @@ import ChoiceButton from './ChoiceButton';
 
 const choices = ['paper', 'scissors', 'rock'];
 const getRandomChoice = () => choices[Math.floor(Math.random() * choices.length)];
-const determineWinner = (userChoice, computerChoice) => {
-  if (userChoice === computerChoice) return 'draw';
+const determineWinner = (userChoice, houseChoice) => {
+  if (userChoice === houseChoice) return 'DRAW';
   if (
-      (userChoice === 'rock' && computerChoice === 'scissors') || 
-      (userChoice === 'scissors' && computerChoice === 'paper') || 
-      (userChoice === 'paper' && computerChoice === 'rock')
+      (userChoice === 'rock' && houseChoice === 'scissors') || 
+      (userChoice === 'scissors' && houseChoice === 'paper') || 
+      (userChoice === 'paper' && houseChoice === 'rock')
     ) {
       return 'YOU WIN';
     }
@@ -20,24 +20,27 @@ const Game = ({score, setScore}) => {
   const [result, setResult] = useState(null);
 
   const handleChoice = (choice) => {
-    const housePick = getRandomChoice();
-    const gameResult = determineWinner(choice, housePick);
-
     setUserChoice(choice);
-    setHouseChoice(housePick);
-    setResult(gameResult);
-    if (gameResult === 'YOU WIN') {
-      setScore(score + 1);
-    } else if (gameResult === 'YOU LOSE') {
-      setScore(score - 1);
-    } else if (score < 0) {
-      setScore(0);
-    }
+    setTimeout(() => {
+      const housePick = getRandomChoice();
+      const gameResult = determineWinner(choice, housePick);
+      
+      setHouseChoice(housePick);
+      setResult(gameResult);
+      if (gameResult === 'YOU WIN') {
+        setScore(score + 1);
+      } else if (gameResult === 'YOU LOSE' && score > 0) {
+        setScore(score - 1);
+      } else if (gameResult === 'DRAW') {
+        setScore(score);
+      }
+    }, 2000);
+    
   }
 
   return (
-    <div className='game'>
-      <div className='choice'>
+    <div className={`game ${result && 'gameResult'}`}>
+      <div className={`choice ${userChoice ? 'hidden' : ''}`}>
         {choices.map((choice) => (
           <ChoiceButton 
             key={choice} 
@@ -46,11 +49,26 @@ const Game = ({score, setScore}) => {
           />
         ))}
       </div>
-      {userChoice && houseChoice && (
+      {userChoice && (
         <div className='result'>
-          <span>You picked: {userChoice}</span>
-          <h1>{result}</h1>
-          <span>The house picked: {houseChoice}</span>
+          <div className='choice-info'>
+            <span>You picked</span>
+            <ChoiceButton 
+              choice={userChoice} 
+              userChoice={userChoice} 
+              />
+          </div>
+          <div className={result ? 'result-info' : 'hidden'}>
+            <h1>{result}</h1>
+            <button className='btn-play-again'>Play Again</button>
+          </div>
+          <div className='choice-info'>
+            <span>The house picked</span>
+            <ChoiceButton 
+              choice={houseChoice} 
+              houseChoice={houseChoice} 
+              />
+          </div>
         </div>
       )}
     </div>

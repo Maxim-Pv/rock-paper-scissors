@@ -10,9 +10,9 @@ const determineWinner = (userChoice, houseChoice) => {
       (userChoice === 'scissors' && houseChoice === 'paper') || 
       (userChoice === 'paper' && houseChoice === 'rock')
     ) {
-      return 'YOU WIN';
+      return 'win';
     }
-    return 'YOU LOSE';
+    return 'lose';
 }
 const Game = ({score, setScore}) => {
   const [userChoice, setUserChoice] = useState(null);
@@ -26,48 +26,69 @@ const Game = ({score, setScore}) => {
       const gameResult = determineWinner(choice, housePick);
       
       setHouseChoice(housePick);
-      setResult(gameResult);
-      if (gameResult === 'YOU WIN') {
-        setScore(score + 1);
-      } else if (gameResult === 'YOU LOSE' && score > 0) {
-        setScore(score - 1);
-      } else if (gameResult === 'DRAW') {
-        setScore(score);
-      }
+
+      setTimeout(() => {
+        setResult(gameResult);
+        if (gameResult === 'win') {
+          setScore(score + 1);
+        } else if (gameResult === 'lose' && score > 0) {
+          setScore(score - 1);
+        } else if (gameResult === 'DRAW') {
+          setScore(score);
+        }
+      }, 2000)
+      
     }, 2000);
-    
+  }
+
+  const handlePLayAgain = () => {
+    setUserChoice(null);
+    setHouseChoice(null);
+    setResult(null);
   }
 
   return (
-    <div className={`game ${result && 'gameResult'}`}>
-      <div className={`choice ${userChoice ? 'hidden' : ''}`}>
-        {choices.map((choice) => (
-          <ChoiceButton 
-            key={choice} 
-            choice={choice}
-            onClick={handleChoice}
-          />
-        ))}
+    <div className={`game ${result ? 'gameResult' : ''}`}>
+      <div className='makeChoice'>
+        <div className={`choice ${userChoice ? 'hidden' : ''}`}>
+          {choices.map((choice) => (
+            <ChoiceButton 
+              key={choice} 
+              choice={choice}
+              onClick={handleChoice}
+            />
+          ))}
+        </div>
       </div>
       {userChoice && (
-        <div className='result'>
-          <div className='choice-info'>
-            <span>You picked</span>
-            <ChoiceButton 
-              choice={userChoice} 
-              userChoice={userChoice} 
-              />
-          </div>
-          <div className={result ? 'result-info' : 'hidden'}>
-            <h1>{result}</h1>
-            <button className='btn-play-again'>Play Again</button>
-          </div>
-          <div className='choice-info'>
-            <span>The house picked</span>
-            <ChoiceButton 
-              choice={houseChoice} 
-              houseChoice={houseChoice} 
-              />
+        <div>
+          <div className='result'>
+            <div className='choice-info'>
+              <span>You picked</span>
+              <div className={result === 'win' ? 'win' : ''}>
+                <ChoiceButton 
+                  choice={userChoice} 
+                  userChoice={userChoice} 
+                  />
+              </div>
+            </div>
+            <div className={result ? 'result-info' : 'hidden'}>
+              <h1>{result === 'win' ? 'YOU WIN' : 'YOU LOSE'}</h1>
+              <button className='btn-play-again' onClick={handlePLayAgain}>Play Again</button>
+            </div>
+
+            <div className='choice-info'>
+              <span>The house picked</span>
+              <div className={result === 'lose' ? 'win' : ''}>
+                {houseChoice 
+                  ? <ChoiceButton 
+                    choice={houseChoice} 
+                    houseChoice={houseChoice} 
+                    />
+                  : <div className='no-selected'></div>
+                }
+              </div>
+            </div>
           </div>
         </div>
       )}

@@ -5,9 +5,12 @@ const ChoiceButton = ({choice, onClick, userChoice, houseChoice}) => {
     if (userChoice || houseChoice) return
     onClick(choice)
   }
+
+  const selected = (userChoice || houseChoice) ? 'selected' : '';
+
   return (
     <button 
-      className={`choice-btn ${choice} ${userChoice || houseChoice ? 'selected' : ''}`} 
+      className={`choice-btn ${choice} ${selected} `} 
       onClick={() => handleChoice(choice)}
       >
     </button>

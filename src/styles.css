@@ -205,7 +205,6 @@ body {
 .result {
   margin-top: 50px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -231,6 +230,10 @@ body {
   color: white;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.result-info {
+  justify-content: center;
 }
 
 .choice-info {
@@ -264,7 +267,7 @@ body {
 }
 
 .no-selected {
-  margin-top: 25px;
+  margin-top: 30px;
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -277,3 +280,69 @@ body {
   z-index: -1;
 }
 
+@media (max-width: 425px) {
+  .header {
+    width: 80%;
+    height: 90px;
+    margin: 30px 0;
+    padding: 10px;
+    padding-left: 20px;
+  }
+
+  .title {
+    line-height: .8;
+    font-size: 10px;
+  }
+
+  .score {
+    width: 70px;
+  }
+
+  .score-title {
+    font-size: 12px;
+    margin-bottom: unset;
+  }
+
+  .score-number {
+    font-size: 30px;
+  }
+
+  .game {
+    width: 100%;
+  }
+
+  .choice {
+    width: unset;
+    height: 270px;
+    background-size: 60%;
+  }
+
+  .choice-btn {
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0px 4px 0px 0px #cbcbcb;
+  }
+
+  .paper {
+    margin-right: 80px;
+    background-size: 50%;
+    border: 12px solid hsl(230, 89%, 65%);
+    filter: drop-shadow(0px 5px 0px hsl(230, 79%, 55%));
+  }
+
+  .scissors {
+    background-size: 50%;
+    border: 12px solid hsl(39, 89%, 53%);
+    filter: drop-shadow(0px 5px 0px hsl(39, 89%, 43%));
+  }
+
+  .rock {
+    background-size: 50%;
+    border: 12px solid hsl(349, 71%, 56%);
+    filter: drop-shadow(0px 5px 0px hsl(349, 71%, 46%));
+  }
+
+  .btn-rules {
+    right: unset;
+  }
+}

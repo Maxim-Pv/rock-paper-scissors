@@ -63,7 +63,7 @@ const Game = ({score, setScore}) => {
       {userChoice && (
         <div>
           <div className='result'>
-            <div className='choice-info'>
+            <div className='choice-info user-choice'>
               <span>You picked</span>
               <div className={`choice-wrapper ${result === 'win' ? 'win' : ''}`}>
                 <ChoiceButton 
@@ -77,7 +77,7 @@ const Game = ({score, setScore}) => {
               <button className='btn-play-again' onClick={handlePLayAgain}>Play Again</button>
             </div>
 
-            <div className='choice-info'>
+            <div className='choice-info house-choice'>
               <span>The house picked</span>
               <div className={`choice-wrapper ${result === 'lose' ? 'win' : ''}`}>
                 {houseChoice 

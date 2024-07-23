@@ -278,6 +278,16 @@ body {
   z-index: -1;
 }
 
+@media (max-width: 768px) {
+  .game {
+    width: 70%;
+  }
+
+  .gameResult {
+    width: 80%;
+  }
+}
+
 @media (max-width: 425px) {
   .header {
     width: 80%;
@@ -306,7 +316,7 @@ body {
   }
 
   .game {
-    width: 100%;
+    width: 88%;
   }
 
   .choice {

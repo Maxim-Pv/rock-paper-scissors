@@ -51,7 +51,7 @@ Users should be able to:
 
 ## Author
 
-- Website - [cv](https://cv-frontend-mocha.vercel.app/)
+- Website - [CV](https://cv-frontend-mocha.vercel.app/)
 - Frontend Mentor - [@Maxim-Pv](https://www.frontendmentor.io/profile/Maxim-Pv)
 - Linked in - [@Maxim_Pavlov](https://www.linkedin.com/in/maksim-pavlov-12b22528b/?locale=en_US)
 

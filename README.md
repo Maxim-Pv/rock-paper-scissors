@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [solution](https://your-solution-url.com)
-- Live Site URL: [site](https://your-live-site-url.com)
+- Solution URL: [solution](https://www.frontendmentor.io/solutions/rock-paper-scissors-using-react-cs2SvI9ubV)
+- Live Site URL: [site](https://rock-paper-scissors-steel-rho.vercel.app/)
 
 ## My process
 
@@ -51,7 +51,7 @@ Users should be able to:
 
 ## Author
 
-- Website - [cv](https://cv-frontend-mocha.vercel.app/)
+- Website - [CV](https://cv-frontend-mocha.vercel.app/)
 - Frontend Mentor - [@Maxim-Pv](https://www.frontendmentor.io/profile/Maxim-Pv)
 - Linked in - [@Maxim_Pavlov](https://www.linkedin.com/in/maksim-pavlov-12b22528b/?locale=en_US)
 

@@ -25,55 +25,54 @@ body {
 }
 
 .header {
-  width: 50%;
-  height: 140px;
-  margin-top: 2.5em;
+  width: 60%;
+  margin-top: 3em;
   display: flex;
-  align-items: center;
   justify-content: space-between;
   border: 2px solid hsl(217, 16%, 45%);
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 15px;
+  padding: 20px 25px 20px 40px;
 }
 
 .title {
-  line-height: .9;
+  line-height: .8;
   text-transform: uppercase;
   color: white;
 }
 
 .score {
-  width: 130px;
-  height: 100%;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  border-radius: 6px;
+  width: 25%;
+  padding: 10px;
+  border-radius: 10px;
   background: white;
-  
 }
 
 .score-title {
-  display: block;
-  margin-bottom: 5px;
+  font-size: 20px;
   letter-spacing: 1px;
   color: hsl(229, 64%, 46%);
   text-transform: uppercase;
 }
 
 .score-number {
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 900;
   color: hsl(229, 25%, 31%);
 }
 
 .choice {
   margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  grid-gap: 20px 60px;
-  flex-wrap: wrap;
-  background: url(../images/bg-triangle.svg) no-repeat;
-  background-position: center 60px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 95px 1fr 1fr;
+  grid-template-rows: 1fr 1fr 230px;
+  background: url(../images/bg-pentagon.svg) no-repeat;
+  background-position: center 100px;
 }
 
 .choice-btn {
@@ -91,27 +90,44 @@ body {
 }
 
 .paper {
+  grid-area: 2 / 4 / 3 / span 2;
   background-image: url(../images/icon-paper.svg);
   border: 19px solid hsl(230, 89%, 65%);
   filter: drop-shadow(0px 7px 0px hsl(230, 79%, 55%));
 }
 
 .scissors {
+  grid-area: 1 / 3 / 2 / 4;
   background-image: url(../images/icon-scissors.svg);
   border: 19px solid hsl(39, 89%, 53%);
   filter: drop-shadow(0px 7px 0px hsl(39, 89%, 43%));
 }
 
 .rock {
+  grid-area: 3 / 4 / 3 / 5;
   background-image: url(../images/icon-rock.svg);
   border: 19px solid hsl(349, 71%, 56%);
   filter: drop-shadow(0px 7px 0px hsl(349, 71%, 46%));
 }
 
+.spock {
+  grid-area: 2 / 1 / 3 / span 2;
+  background-image: url(../images/icon-spock.svg);
+  border: 19px solid hsl(189, 58%, 57%);
+  filter: drop-shadow(0px 7px 0px hsl(189, 58%, 47%));
+}
+
+.lizard {
+  grid-area: 3 / 2 / 4 / 3;
+  background-image: url(../images/icon-lizard.svg);
+  border: 19px solid hsl(261, 72%, 63%);
+  filter: drop-shadow(0px 7px 0px hsl(261, 72%, 53%));
+}
+
 /* rules */
 
 .btn-rules {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   right: 40px;
   padding: 6px 20px;
@@ -158,7 +174,7 @@ body {
   align-items: center;
   padding: 20px;
   width: 340px;
-  height: 350px;
+  height: 360px;
   background-color: white;
   border-radius: 10px;
 }
@@ -166,14 +182,14 @@ body {
 
 .rules-title {
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .rules-text {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
   text-transform: uppercase;
   color: hsl(229, 25%, 31%);
@@ -182,15 +198,15 @@ body {
 .btn-close-rules {
   background: url(../images/icon-close.svg) no-repeat;
   background-size: contain;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   background-position: center;
   border: none;
   cursor: pointer;
 }
 
 .rules-img {
-  background: url(../images/image-rules.svg) no-repeat;
+  background: url(../images/image-rules-bonus.svg) no-repeat;
   background-size: contain;
   width: 85%;
   height: 85%;
@@ -211,7 +227,7 @@ body {
 }
 
 .gameResult {
-  width: 50%;
+  width: 60%;
 }
 
 .makeChoice {
@@ -291,7 +307,6 @@ body {
 @media (max-width: 425px) {
   .header {
     width: 80%;
-    height: 90px;
     margin: 30px 0;
     padding: 10px;
     padding-left: 20px;
@@ -300,10 +315,6 @@ body {
   .title {
     line-height: .8;
     font-size: 10px;
-  }
-
-  .score {
-    width: 70px;
   }
 
   .score-title {
@@ -320,8 +331,10 @@ body {
   }
 
   .choice {
-    grid-gap: 20px 40px;
-    background-position: center 45px;
+    margin-top: 30px;
+    grid-template-columns: 1fr 1fr 50px 1fr 1fr;
+    grid-template-rows: 1fr 70px 170px;
+    background-position: center 40px;
     background-size: 60%;
   }
 
@@ -347,6 +360,18 @@ body {
     background-size: 50%;
     border: 12px solid hsl(349, 71%, 56%);
     filter: drop-shadow(0px 5px 0px hsl(349, 71%, 46%));
+  }
+
+  .spock {
+    background-size: 50%;
+    border: 12px solid hsl(189, 58%, 57%);
+    filter: drop-shadow(0px 5px 0px hsl(189, 58%, 47%));
+  }
+  
+  .lizard {
+    background-size: 50%;
+    border: 12px solid hsl(261, 72%, 63%);
+    filter: drop-shadow(0px 5px 0px hsl(261, 72%, 53%));
   }
 
   /* rules */
@@ -375,6 +400,7 @@ body {
   }
 
   .btn-rules {
+    bottom: 20px;
     right: unset;
   }
 

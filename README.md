@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [solution](https://your-solution-url.com)
-- Live Site URL: [site](https://your-live-site-url.com)
+- Solution URL: [solution](https://www.frontendmentor.io/solutions/rock-paper-scissors-using-react-cs2SvI9ubV)
+- Live Site URL: [site](https://rock-paper-scissors-steel-rho.vercel.app/)
 
 ## My process
 

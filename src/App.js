@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Game from './components/Game';
-import './styles.css';
 import Rules from './components/Rules';
+import './styles.css';
 
 function App() {
   const [score, setScore] = useState(0);
@@ -14,6 +14,8 @@ function App() {
           <h1>Rock</h1>
           <h1>Paper</h1>
           <h1>Scissors</h1>
+          <h1>Lizard</h1>
+          <h1>Spock</h1>
         </div>
         <div className='score'>
           <span className='score-title'>Score</span>

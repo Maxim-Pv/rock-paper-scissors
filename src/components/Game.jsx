@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import ChoiceButton from './ChoiceButton';
 
-const choices = ['paper', 'scissors', 'rock'];
+const choices = ['scissors', 'spock', 'paper', 'lizard', 'rock'];
 const getRandomChoice = () => choices[Math.floor(Math.random() * choices.length)];
 const determineWinner = (userChoice, houseChoice) => {
   if (userChoice === houseChoice) return 'DRAW';
   if (
-      (userChoice === 'rock' && houseChoice === 'scissors') || 
-      (userChoice === 'scissors' && houseChoice === 'paper') || 
-      (userChoice === 'paper' && houseChoice === 'rock')
+      (userChoice === 'rock' && (houseChoice === 'scissors' || houseChoice === 'lizard')) || 
+      (userChoice === 'scissors' && (houseChoice === 'paper' || houseChoice === 'lizard')) || 
+      (userChoice === 'paper' && (houseChoice === 'rock' || houseChoice === 'spock')) || 
+      (userChoice === 'spock' && (houseChoice === 'scissors' || houseChoice === 'rock')) || 
+      (userChoice === 'lizard' && (houseChoice === 'paper' || houseChoice === 'spock'))
     ) {
       return 'win';
     }

@@ -25,12 +25,11 @@ Users should be able to:
 
 ### Screenshot
 
-![desktop-step1](./design/original/desktop-step-1.jpg)
-![desktop-step2](./design/original/desktop-step-2.jpg)
-![desktop-step3](./design/original/desktop-step-3.jpg)
-![desktop-step4](./design/original/desktop-step-4-lose.jpg)
-![desktop-step4](./design/original/desktop-step-4-win.jpg)
-![desktop-rules](./design/original/desktop-rules-modal.jpg)
+![desktop-step1](./design/bonus/desktop-step-1-bonus.jpg)
+![desktop-step2](./design/bonus/desktop-step-2-bonus.jpg)
+![desktop-step3](./design/bonus/desktop-step-3-bonus.jpg)
+![desktop-step4](./design/bonus/desktop-step-4-bonus.jpg)
+![desktop-rules](./design/bonus/desktop-rules-modal-bonus.jpg)
 
 ### Links
 
